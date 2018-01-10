@@ -1,0 +1,11 @@
+ELEMENTOS DE ANGULAR 4
+
+	- COMPONENTES
+	- PLANTILLAS
+	- DECORADORES Y METADATOS
+	- SERVICIOS
+	- PROVIDERS
+	- DIRECTIVAS: Es una funcionalidad expuesta en forma de atributo HTML (ejemplo: *ngIf).
+			* Cuando la directiva usa corchetes (ejemplo: [ngSwitch]="propiedad"), 					quiere decir que la directiva trabaja con el binding de alguna 					propiedad de un objeto.
+			
+			*Cuando la directiva usa paréntesis (ejemplo: (click)="miFuncion()") 					indica que va a responder a un evento.
