@@ -1,0 +1,26 @@
+<h2>{{title}}</h2>
+<div class="col-md-10 col-md-offset-1" style="background: red;">
+  <div class="col-md-4" style="background: green; height: 200px;"></div>
+  <div class="col-md-8" style="background: grey;">
+    
+      <div class="row col-md-12" *ngFor="let hotel of hoteles" style="background: white; margin-top:10px;">
+        <div class="col-md-6">
+          <img src="./assets/img/hotel.jpg" style="width: 100%; " />
+        </div>
+        <div class="col-md-6" style="left:-20px;">
+          <span>
+            <strong>{{hotel.nombre}}</strong>
+          </span>
+          <div>
+            <img src="./assets/img/star.png" style="width: 20px; height: 25px;" />
+            <img src="./assets/img/star.png" style="width: 20px; height: 25px;" />
+            <img src="./assets/img/star.png" style="width: 20px; height: 25px;" />
+          </div>
+        </div>
+
+
+
+      </div>
+    
+  </div>
+</div>
