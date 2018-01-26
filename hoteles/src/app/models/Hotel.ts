@@ -1,13 +1,31 @@
+import { JsonObject, JsonProperty } from "json2typescript";
+
+@JsonObject
 export class Hotel {
     
     constructor(
-        public nombre:string,
-        public descripcion:string,
-        public condiciones:Array<string>,
-        public comodidades:Array<string>,
-        public comentarios:Array<string>,
-        public cantHabitaciones:number,
-        public cantPersonas:number,
-        public fotos:Array<string>,
+        @JsonProperty("name", String)
+        public nombre:string = undefined,
+
+        @JsonProperty("descripcion", String)
+        public descripcion: string = undefined,
+
+        @JsonProperty("condiciones", [String])
+        public condiciones: Array<string> = undefined,
+
+        @JsonProperty("comodidades", [String])
+        public comodidades: Array<string> = undefined,
+
+        @JsonProperty("comentarios", [String])
+        public comentarios: Array<string> = undefined,
+
+        @JsonProperty("cantHabitaciones", Number)
+        public cantHabitaciones: number = undefined,
+
+        @JsonProperty("cantPersonas", Number)
+        public cantPersonas: number = undefined,
+
+        @JsonProperty("fotos", [String])
+        public fotos: Array<string> = undefined,
     ){}
 }
