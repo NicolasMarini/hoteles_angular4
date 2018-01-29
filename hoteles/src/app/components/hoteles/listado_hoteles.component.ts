@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
+import { JsonConvert, OperationMode, ValueCheckingMode } from "json2typescript"
 
 
 import { HotelService } from '../../services/Hotel.service';
@@ -33,7 +34,28 @@ export class ListadoHotelesComponent {
 				console.log(errorMessage);
 			}
 		)*/
-		this.hotelService.getHoteles();
+		
+		this.hotelService.getHoteles().subscribe(
+            result => {
+
+                console.log(result);
+                // Map to the hotel class
+                let hoteles: Array<Hotel>;
+                try {
+                    this.hoteles = jsonConvert.deserialize(result, Hotel);
+                    //console.table(hoteles);
+                } catch (e) {
+                    console.log((<Error>e));
+                }
+            },
+            error => {
+                console.log('ERROR');
+                var errorMessage = <any>error;
+                console.log(errorMessage);
+            }
+        )
+
+		console.log('ThiS:HOTELES: ' + this.hoteles);
 	}
 
 }

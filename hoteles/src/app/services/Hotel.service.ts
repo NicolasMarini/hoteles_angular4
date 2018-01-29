@@ -31,7 +31,7 @@ export class HotelService {
         let jsonConvert: JsonConvert = new JsonConvert();
         jsonConvert.operationMode = OperationMode.LOGGING; // print some debug data
         jsonConvert.ignorePrimitiveChecks = false; // don't allow assigning number to string etc.
-        jsonConvert.valueCheckingMode = ValueCheckingMode.DISALLOW_NULL; // never allow null
+        jsonConvert.valueCheckingMode = ValueCheckingMode.ALLOW_NULL; // never allow null
 
         
 
@@ -39,25 +39,7 @@ export class HotelService {
 
         let hoteles: Array<Hotel> = [];
 
-        this.http.get(this.url + "hoteles/all").subscribe(
-            result => {
-
-                console.log(result);
-                // Map to the hotel class
-                let hotel: Array<Hotel>;
-                try {
-                    hotel = jsonConvert.deserialize(result, Hotel);
-                    console.table(hotel);
-                } catch (e) {
-                    console.log((<Error>e));
-                }
-            },
-            error => {
-                console.log('ERROR');
-                var errorMessage = <any>error;
-                console.log(errorMessage);
-            }
-        )
+        return this.http.get(this.url + "hoteles/all");
     }
 
     getPosts() {
